@@ -12,7 +12,7 @@ dotenv.config()
 
 // Conectar ao MongoDB
 mongoose.connect(
-  'mongodb://127.0.0.1:27017/jwt', 
+  process.env.CONECTAR_MONGODB, 
   console.log("Conectado ao Banco de dados")
 );
 app.use(express.json())
