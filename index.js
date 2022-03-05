@@ -4,8 +4,9 @@ const dotenv = require('dotenv')
 const mongoose = require("mongoose");
 
 // Rotas
-const authRouter = require("./routes/auth");
-const post = require('./routes/post')
+const registrar = require("./routes/registrarUsuario");
+const logar = require('./routes/logarUsuario')
+const testeToken = require('./routes/testeToken')
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ mongoose.connect(
   console.log("Conectado ao Banco de dados")
 );
 app.use(express.json())
-app.use("/api/user", authRouter);
-app.use("/api/post", post)
+app.use("/api/registrar", registrar);
+app.use("/api/logar", logar);
+app.use("/api/testeToken", testeToken)
 app.listen(3000, () => console.log("Servidor Online"));
