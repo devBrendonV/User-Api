@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Usuario = require("../model/user");
+const Usuario = require("../model/Usuario");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
   const verificarSenha = await bcrypt.compare(req.body.senha, usuario.senha);
   if (!verificarSenha) return res.status(400).send("Senha incorreta");
 
-  const token = jwt.sign({ id: usuario._id }, process.env.TOKEN_JWT);
+  const token = jwt.sign({ id: usuario._id }, process.env.JWT_SECRET);
   res.header("token-autenticado", token).send(token); 
 });
 

@@ -13,7 +13,7 @@ dotenv.config()
 
 // Conectar ao MongoDB
 mongoose.connect(
-  process.env.CONECTAR_MONGODB, 
+  process.env.DB_URL, 
   console.log("Conectado ao Banco de dados")
 );
 app.use(express.json())
