@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const dotenv = require('dotenv')
 const mongoose = require("mongoose");
+const PORT = 3000
 
 // Rotas
 const registrar = require("./routes/registrarUsuario");
@@ -20,4 +21,4 @@ app.use(express.json())
 app.use("/api/registrar", registrar);
 app.use("/api/logar", logar);
 app.use("/api/testeToken", testeToken)
-app.listen(3000, () => console.log("Servidor Online"));
+app.listen(PORT, () => console.log("Servidor Online"));
